@@ -139,7 +139,7 @@ Delete          : screen -S screenName -X quit
       Experiment ExperimentName used X of additional disk space on your device
       and was processed in X hours X minutes and X seconds !
       ------------------------------------------------------------------------
-      Final files are in folder ExperimentName/FinalFiles ! :)
+      Final files are in folder ExperimentName/k* ! :)
 
 ## PRECONDITIONS
 
