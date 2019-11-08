@@ -153,9 +153,9 @@ There will be a folder named yearMonthDay_hourMinSec.
 Each folder will contain these types of files :
 
     k1/file_sorted-k1.bam
-    k1/file_sorted-k1.bam.bai
+      /file_sorted-k1.bam.bai
     k3/file_sorted-k3.bam
-    k3/file_sorted-k3.bam.bai
+      /file_sorted-k3.bam.bai
 
     QualityCheck-yearMonthDay_hourMinSec/file_fastqc/
                                         /file_trim_fastqc/
