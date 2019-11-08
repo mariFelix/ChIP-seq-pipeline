@@ -21,7 +21,7 @@ This script process raw ChIP-seq data into aligned BAM files.
 
 ## WARNINGS
 
-Caution, this script was tested only on Linux 14.04 LTS and 16.04.5 LTS distributions and is provided "as is", without warranty.
+Caution, this script was tested only on Linux 14.04 LTS and 16.04 LTS distributions and is provided "as is", without warranty.
 
 This script works only with SINGLE END files.
 
