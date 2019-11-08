@@ -31,7 +31,7 @@ This script works only with SINGLE END files.
 This script requires the following softwares :
 
  - SRA Toolkit
- - Bedtools
+ - Picard 1.138
  - FastQC
  - Trimmomatic-0.33
  - Bowtie2
@@ -72,7 +72,7 @@ Resume          : screen -r screenName
 Delete          : screen -S screenName -X quit
 ```
 
-[3]  Run the script into the open screen :
+[3]  Run the script into the opened screen :
 
       ./pipeline_ChIP-seq.sh
 
@@ -92,6 +92,8 @@ Delete          : screen -S screenName -X quit
 [6]  Enter your filename or folder name followed by [ENTER].
 
       e.g.: ../relative/path/to/file.bam
+      
+      e.g.: /absolute/path/to/folder
 
 [7]  Enter path to the indexed reference genome basename, followed by [ENTER]. 
 
@@ -151,21 +153,21 @@ There will be a folder named yearMonthDay_hourMinSec.
 
 Each folder will contain these types of files :
 
-    FinalFiles/k1/file_sorted-k1.bam
-              /k1/file_sorted-k1.bam.bai
-              /k3/file_sorted-k3.bam
-              /k3/file_sorted-k3.bam.bai
+    k1/file_sorted-k1.bam
+    k1/file_sorted-k1.bam.bai
+    k3/file_sorted-k3.bam
+    k3/file_sorted-k3.bam.bai
 
-    QualityCheck/file_fastqc/
-                /file_trim_fastqc/
+    QualityCheck-yearMonthDay_hourMinSec/file_fastqc/
+                                        /file_trim_fastqc/
 
     settingSummary-yearMonthDay_hourMinSec.txt
 
     yearMonthDay_hourMinSec.log
 
-Where file_sorted-k/*.bam is the final file, file_fastqc is the FastQC quality analysis, settingSummary-yearMonthDay_hourMinSec.txt is the summary of the command and yearMonthDay_hourMinSec.log is the log of the processing.
+Where file_sorted-k*.bam are the final files, file_fastqc are the FastQC quality analysis folders, settingSummary-yearMonthDay_hourMinSec.txt is the summary of the command and yearMonthDay_hourMinSec.log is the log of the processing.
 
 ## HOW IT WORKS
 
-This script writes the summary of the command in a file and store the processing information in a log file. It detects the input file format (FASTQ, BAM, SRA or FASTQ.GZ) and will convert it into FASTQ.GZ format in the fastqFile directory (with SRA Toolkit or Bedtools). Then, a FastQC quality analysis will be performed on these files (with FastQC). A trimming will be done (with Trimmomatic) according to the user's parameters. Then, the alignment of these files is made (with Bowtie2). These file are then sorted (with Samtools). The final files will be stored in the FinalFiles directory.
+This script writes the summary of the command in a summary file and store the processing information in a log file. It detects the input file format (FASTQ, BAM, SRA or FASTQ.GZ) and will convert it into FASTQ.GZ format (with SRA Toolkit or Picard). Then, a FastQC quality analysis is performed on these files (with FastQC). A trimming is done (with Trimmomatic) according to the user's parameters. Then, the alignment of these files is made (with Bowtie2). These file are then sorted (with Samtools). The final files are stored in their corresponding k value directory.
 
